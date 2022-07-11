@@ -3,9 +3,6 @@
     <card
         title="Responsive"
       >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
     </card>
   </section>
 </template>
