@@ -1,0 +1,1278 @@
+@charset "UTF-8";
+/************************************* radio, checkbox *************************************/
+.inp {
+  display: inline-block;
+  position: relative;
+  // min-width: 10rem;
+  padding-right: 3rem;
+  label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 2.5rem;
+    min-height: 2rem;
+    .ftext {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+    }
+  }
+  input {
+    display: none;
+    &[type='radio'] {
+      + label:before {
+        background-color: #fff;
+        border:1px solid #000;
+      }
+    }
+    &[type='radio']:checked + label:before {
+      background: green;
+      border:1px solid green;
+    }
+    &[type='checkbox'] {
+      + label:before {
+        background-color: #fff;
+        border:1px solid #000;
+      }
+    }
+    &[type='checkbox']:checked + label:before {
+        background: yellow;
+        border:1px solid yellow;
+    }
+    &[type='radio']:disabled + label,
+    &[type='checkbox']:disabled + label {
+      cursor: default;
+    }
+  }
+  &.medium {
+    label {
+      .ftext {
+        font-weight: 500;
+      }
+    }
+  }
+  &.bold {
+    label {
+      .ftext {
+        font-weight: 700;
+      }
+    }
+  }
+}
+/* 사각형 면 checkbox, 사각형 radio */
+.inp-sq {
+  display: inline-block;
+  position: relative;
+  min-width: 8rem;
+  margin: 0.4rem 0.4rem 0 0;
+  label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    color: #bcbcbc;
+    line-height: 3.4rem;
+    border: 1px solid #bcbcbc;
+    border-radius: 3px;
+    .ftext {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+  }
+  input {
+    display: none;
+    &[type='radio']:checked + label,
+    &[type='checkbox']:checked + label {
+      background: var(--baseColor);
+      border: 1px solid var(--baseColor);
+      .ftext {
+        color: #fff;
+        font-weight: 500;
+      }
+    }
+    &[type='radio']:disabled + label,
+    &[type='checkbox']:disabled + label {
+      cursor: default;
+      background-color: #e6e6e6;
+      border-color: #e6e6e6;
+    }
+  }
+  //line형
+  &.line {
+    label {
+      .ftext {
+        color: #1d1d1d;
+      }
+    }
+    input {
+      &[type='radio']:checked + label,
+      &[type='checkbox']:checked + label {
+        background: #fff;
+        .ftext {
+          color: #1d1d1d;
+        }
+      }
+    }
+  }
+}
+.sq-area {
+  width: 100%;
+  //inp-sq의 margin값 상쇄를 위해 사용한다.
+  margin: -0.4rem -0.4rem 0 0;
+  &.day {
+    display: flex;
+    .inp-sq {
+      flex: 1;
+      min-width: auto;
+      label {
+        line-height: 4.1rem;
+        .ftext {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  &.pay {
+    display: flex;
+    margin: 0;
+    .inp-sq {
+      flex: 1;
+      min-width: auto;
+      margin: 0;
+      label {
+        line-height: 4.1rem;
+        .ftext {
+          font-size: 1.1rem;
+        }
+      }
+      + .inp-sq {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+/* box형 checkbox, box형 radio */
+.inp-box {
+  display: block;
+  position: relative;
+  label {
+    display: block;
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 1.5rem;
+      top: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  input {
+    display: none;
+    &[type='radio'] {
+      + label:before {
+        background-color: #fff;
+        border:1px solid #000;
+      }
+    }
+    &[type='radio']:checked + label:before {
+        background-color: green;
+        border:1px solid green
+    }
+    &[type='checkbox'] {
+      + label:before {
+        background-color: #fff;
+        border:1px solid #000;
+      }
+    }
+    &[type='checkbox']:checked + label:before {
+        background-color: yellow;
+        border:1px solid yellow
+    }
+    &[type='radio']:disabled + label,
+    &[type='checkbox']:disabled + label {
+      cursor: default;
+    }
+  }
+  &.vc {
+    //checkbox, radio버튼이 중앙으로 오는것
+    label {
+      &:before {
+        top: 50%;
+        margin-top: -1rem;
+      }
+    }
+  }
+  + .inp-box {
+    margin-top: 1rem;
+  }
+}
+
+/* bg형 checkbox, box형 radio */
+.inp-bg {
+  display: block;
+  position: relative;
+  label {
+    display: block;
+    position: relative;
+    padding: 1.5rem 4.5rem 1.5rem 1.5rem;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    &:before {
+      content: '';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      width: 2rem;
+      height: 2rem;
+      margin-top: -1rem;
+    }
+  }
+  input {
+    display: none;
+    &[type='radio'] {
+      + label:before {
+        background-color: #fff;
+        border:1px solid #000;
+      }
+    }
+    &[type='radio']:checked + label:before {
+        background-color: green;
+        border:1px solid green;
+    }
+    &[type='checkbox'] {
+      + label:before {
+        background-color: #fff;
+        border:1px solid #000;
+      }
+    }
+    &[type='checkbox']:checked + label:before {
+        background-color: yellow;
+        border:1px solid yellow;
+    }
+    &[type='radio']:disabled + label,
+    &[type='checkbox']:disabled + label {
+      cursor: default;
+    }
+  }
+  &.vc {
+    //checkbox, radio버튼이 중앙으로 오는것
+    label {
+      &:before {
+        top: 50%;
+        margin-top: -1rem;
+      }
+    }
+  }
+  &.check {
+    //radio이지만 check type의 아이콘이 나오는 경우
+    input {
+      &[type='radio'] {
+        + label:before {
+            background-color: #fff;
+            border:1px solid #000;
+        }
+      }
+      &[type='radio']:checked + label:before {
+        background-color: yellow;
+        border:1px solid yellow;
+      }
+    }
+  }
+}
+
+/* form area */
+.form-area {
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    flex: 1;
+  }
+  .sel {
+    width: 100%;
+  }
+  .inp {
+    // width: 100%;
+  }
+  [class*='btn-']:not([class*='wd'], .btn-mask, .btn-search, .btn-file-del) {
+    width: 100%;
+  }
+  .tf,
+  .sel,
+  .card-type {
+    + .large {
+      height: 4.4rem;
+      font-size: 1.3rem;
+    }
+  }
+  &:not(.type-row):not(.type-address):not(.type-email):not([class*='grid']) {
+    > *:not(:first-child):not(.inp) {
+      margin-left: 1rem;
+    }
+    // .sel + [class*='btn'] {
+    //   margin-left: 1rem;
+    // }
+    // .tf + [class*='btn'] {
+    //   margin-left: 1rem;
+    // }
+    // [class*='btn'] + .sel {
+    //   margin-left: 1rem;
+    // }
+    // [class*='btn'] + [class*='btn'] {
+    //   margin-left: 1rem;
+    // }
+    // .sel + .sel {
+    //   margin-left: 1rem;
+    // }
+  }
+  &.type-row,
+  &.type-address,
+  &.type-email {
+    flex-direction: column;
+    .row {
+      display: flex;
+      + .row {
+        margin-top: 1rem;
+      }
+      > *:not(:first-child) {
+        margin-left: 1rem;
+      }
+      // .sel + [class*='btn'] {
+      //   margin-left: 1rem;
+      // }
+      // .tf + [class*='btn'] {
+      //   margin-left: 1rem;
+      // }
+      // [class*='btn'] + .sel {
+      //   margin-left: 1rem;
+      // }
+      // [class*='btn'] + [class*='btn'] {
+      //   margin-left: 1rem;
+      // }
+      // .sel + .sel {
+      //   margin-left: 1rem;
+      // }
+    }
+  }
+  &.type-email {
+    .unit {
+      align-self: center;
+    }
+  }
+  &.type-yyyymm {
+    .unit {
+      flex: 0 0 auto;
+      align-self: center;
+    }
+  }
+  &.flex {
+    margin-top: -1rem;
+    .inp {
+      flex: inherit;
+      margin-top: 1rem;
+    }
+  }
+  /* grid : grid2, grid3, grid4...  inp요소(input, checkbox)들만 있을 때'만' 사용한다. */
+  &[class*='grid'] {
+    width: 100%;
+    .inp {
+      flex: none;
+      min-width: inherit;
+      width: 100%;
+      padding-right: 1rem;
+    }
+    &.grid1 {
+      .inp {
+        width: 100%;
+        padding-right: 0;
+        & ~ .inp {
+          margin-top: 1rem;
+        }
+      }
+    }
+    &.grid2 {
+      .inp {
+        width: 50%;
+        &:nth-child(2n) ~ .inp {
+          margin-top: 1rem;
+        }
+      }
+    }
+    &.grid3 {
+      .inp {
+        width: 33.3%;
+        &:nth-child(2n) {
+          width: 33.4%;
+        }
+        &:nth-child(3n) ~ .inp {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+  .card-type {
+    position: relative;
+    .type {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--normal);
+    }
+  }
+}
+
+/************************************* selectbox *************************************/
+.sel {
+  display: inline-block;
+  select {
+    cursor: pointer;
+    appearance: none;
+    width: 100%;
+    height: 4.5rem;
+    padding: 0 2.5rem 0 1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    font-size: 1.3rem;
+    color: #1d1d1d;
+    // background: url(@/assets/images/common/select-arrow.svg) no-repeat right 1rem center/1.2rem 0.6rem;
+    &.disabled {
+      color: #bcbcbc;
+      background-color: #f1f1f1;
+    }
+  }
+  &.bold {
+    select {
+      font-weight: 700;
+    }
+  }
+  &.small {
+    select {
+      height: 3.6rem;
+    }
+  }
+}
+/************************************* sel-day : 주문 수량/요일 선택 *************************************/
+.sel-day {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  border-width: 1px 1px 0 0;
+  border-radius: 3px;
+  .sel-item {
+    display: flex;
+    align-items: center;
+    width: 33.3%;
+    padding: 1rem 1.5rem;
+    &:nth-child(3n + 2) {
+      width: 33.4%;
+    }
+    border: 1px solid #e6e6e6;
+    border-width: 0 0 1px 1px;
+    .day {
+      flex: 1;
+      font-size: 1.2rem;
+      color: #1d1d1d;
+    }
+    select {
+      cursor: pointer;
+      width: 4rem;
+      height: 2rem;
+      padding-right: 2rem;
+      appearance: none;
+      border: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      text-indent: 1rem;
+      color: var(--baseColor);
+    //   background: #fff url(@/assets/images/common/select-arrow.svg) no-repeat 100% 50%/1.2rem 0.6rem;
+    }
+    input {
+      width: 4rem;
+      height: 2rem;
+      padding-right: 2rem;
+      border: 0;
+      border-radius: 2px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: right;
+      color: var(--baseColor);
+      &:focus {
+        outline: 2px solid #1d1d1d;
+      }
+    }
+    &.disabled {
+      background-color: #e6e6e6;
+      .day {
+        color: #bcbcbc;
+      }
+      select {
+        cursor: default;
+        color: #bcbcbc;
+        // background: #e6e6e6 url(@/assets/images/common/select-arrow-disabled.svg) no-repeat 100% 50%/2rem 2rem;
+      }
+    }
+  }
+}
+/************************************* sel-daliy : 주5일, 주 3일  *************************************/
+.sel-daliy {
+  .sel-item {
+    display: flex;
+    align-items: center;
+    .day {
+      flex-shrink: 0;
+      width: 60px;
+      font-size: 1.1rem;
+      line-height: 2.72727;
+      font-weight: 400;
+      letter-spacing: -0.08rem;
+      color: #666;
+    }
+    .sel {
+      flex: 1;
+    }
+    .inp-num {
+      flex-shrink: 0;
+      width: 12.2rem;
+      margin-left: 0.6rem;
+    }
+    + .sel-item {
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+/************************************* dropdown *************************************/
+.dropdown {
+  display: inline-block;
+  position: relative;
+  .btn-drop {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    .selected-option {
+      color: #1d1d1d;
+    }
+  }
+  .option-drop {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #999;
+    z-index: 20;
+    li {
+      button {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+        cursor: pointer;
+      }
+    }
+    &.add-prd-option {
+      //추가 상품 옵션
+      li {
+        button {
+          padding: 0.6rem 1rem 0.7rem;
+          color: #333;
+          .option {
+            display: block;
+            font-size: 1.3rem;
+            line-height: 1.38462;
+            font-weight: 300;
+            letter-spacing: -0.08rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: currentColor;
+          }
+          .price {
+            font-size: 1.3rem;
+            line-height: 1.38462;
+            font-weight: 400;
+            letter-spacing: -0.04rem;
+            color: currentColor;
+          }
+          &.selected {
+            background-color: #ccc;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  &.on {
+    .option-drop {
+      display: block;
+    }
+  }
+  &.type-sel {
+    //select와 동일한 디자인
+    min-width: 20rem;
+    height: 4.5rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    font-size: 1.3rem;
+    .btn-drop {
+      padding: 0 2.5rem 0 1rem;
+      text-align: left;
+      font-size: 1.3rem;
+      color: #999;
+    //   background: url(@/assets/images/common/select-arrow.svg) no-repeat right 1rem center/1.2rem 0.6rem;
+    }
+    .option-drop {
+      li {
+        button {
+          padding: 0.5rem 2.5rem 0.5rem 1rem;
+        }
+      }
+    }
+  }
+  &.type-sort {
+    width: 8.6rem;
+    height: 4rem;
+    .btn-drop {
+      position: relative;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #444;
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 2rem;
+        height: 2rem;
+        margin-top: -1rem;
+        // background: url(@/assets/images/common/select-arrow2.svg) no-repeat 0 0/2rem 2rem;
+        transform: rotate(180deg);
+        transition: transform 0.3s;
+      }
+    }
+    .option-drop {
+      top: calc(100% - 9px);
+      border-radius: 4px;
+      border: solid 1px #ccc;
+      li {
+        button {
+          line-height: 3.4rem;
+          padding: 0 0.5rem;
+          font-size: 1.2rem;
+          color: #a5a5a5;
+          font-size: 300;
+          text-align: center;
+          &.selected {
+            color: var(--baseColor);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    &.on {
+      .btn-drop {
+        &:after {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+}
+
+.add-prd-selected {
+  margin-top: 1rem;
+  border: 1px solid #999;
+  li {
+    position: relative;
+    padding: 0.8rem 3rem 0.8rem 0.8rem;
+    .option {
+      display: block;
+      font-size: 1.3rem;
+      line-height: 1.38462;
+      font-weight: 300;
+      letter-spacing: -0.08rem;
+      color: #333;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      + .inp-num {
+        margin-top: 0.7rem;
+      }
+    }
+    .btn-del {
+      position: absolute;
+      right: 0.3rem;
+      top: 0.3rem;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      &:before {
+        content: 'X';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        // background: url(@/assets/images/common/icon-x.svg) no-repeat 0 0/1.5rem auto;
+      }
+    }
+    + li {
+      border-top: 1px solid #999;
+    }
+  }
+}
+
+/************************************* numberinput *************************************/
+.inp-num {
+  .minus,
+  .plus {
+    margin: 0 !important;
+    button {
+      width: 4.4rem;
+      height: 4.4rem;
+      padding: 0;
+      border-radius: 2px;
+      color: #111;
+      border: 1px solid #e6e6e6;
+      background: #fff;
+      &:hover,
+      &.is-hovered {
+        border: 1px solid #e6e6e6;
+        background: #fff;
+      }
+      &:disabled {
+        opacity: 1;
+        border: 1px solid #e6e6e6; //임시값  disabled 관련 디자인 나오면 변경
+        background: #fff; //임시값  disabled 관련 디자인 나오면 변경
+        cursor: pointer;
+      }
+      .icon {
+        display: none;
+      }
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1.2rem;
+        height: 0.2rem;
+        margin-left: -0.6rem;
+        margin-top: -0.1rem;
+        background: #111;
+      }
+    }
+  }
+  .plus {
+    button {
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  input[type='number'] {
+    height: 4.4rem;
+    padding: 0 1rem;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: #1d1d1d;
+  }
+  &.small {
+    display: inline-flex;
+    vertical-align: top;
+    button {
+      width: 2.8rem;
+      height: 2.8rem;
+    }
+    input[type='number'] {
+      width: 5.8rem;
+      height: 2.8rem;
+      padding: 0 0.8rem;
+    }
+  }
+}
+
+/************************************* input[type="text"] : tf(textfield) *************************************/
+.tf {
+  width: 100%;
+  height: 4.4rem;
+  padding: 0 1rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 4.4rem;
+  color: #1d1d1d;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  &:not(:readonly) {
+    &:focus {
+      border-color: #1d1d1d;
+    }
+  }
+
+  &.center {
+    text-align: center;
+  }
+  &::placeholder {
+    color: #a5a5a5;
+  }
+  &[type='password'] {
+  }
+  &[type='number'] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+  }
+  &.disabled {
+    //readonly일때도 disabled 클래스를 넣되 속성은 readonly를 넣습니다.
+    //비포커싱상태(포커싱이 아닌 상태에서 disabled처럼 나오는 경우)일때도 disabled 클래스를 넣습니다.
+    color: #bcbcbc;
+    background-color: #f1f1f1;
+    &:not(:disabled) {
+      &:focus {
+        background-color: #fff;
+      }
+    }
+  }
+}
+/************************************* tf-search *************************************/
+.tf-search {
+  position: relative;
+  width: 100%;
+  .tf {
+    padding-right: 5rem;
+  }
+  .btn-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 5rem;
+    cursor: pointer;
+    // background: url(@/assets/images/common/icon-search.svg) no-repeat 50% 50%/2rem auto;
+  }
+}
+
+/************************************* tf-file *************************************/
+.tf-file {
+  display: flex;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  .tf {
+    display: flex;
+    margin-right: 1rem;
+    border-color: #f8f8f8;
+    background-color: #f8f8f8;
+    .name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+  }
+  .btn-point.large {
+    height: 4.4rem;
+  }
+  .btn-file-del {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: -1rem;
+    width: 3.8rem;
+    height: 100%;
+    // background: url('@/assets/images/common/icon-delete2.svg') no-repeat 50% 50%/0.8rem auto;
+  }
+}
+
+/************************************* tf-datepicker *************************************/
+.tf-datepicker,
+.btn-datepicker {
+  position: relative;
+  width: 100%;
+  .datepicker {
+    .background {
+      display: none !important;
+    }
+    .dropdown-menu {
+      position: absolute !important; /* fixed방지 */
+      top: 4.4rem !important;
+      left: 0 !important;
+      overflow: visible !important;
+      width: 26rem !important;
+      transform: none !important;
+      padding-top: 0;
+    }
+  }
+}
+.btn-datepicker {
+  //주문 배송조회(정기) > 배송일 변경
+  padding: 0 1rem;
+  .datepicker {
+    .dropdown-trigger {
+      .btn-normal {
+        width: calc(100% + 2rem);
+        margin: 0 -1rem;
+      }
+    }
+    .dropdown-menu {
+      left: -1rem !important;
+      top: 3.5rem !important;
+    }
+  }
+}
+.tf-datepicker {
+  .tf {
+    padding-right: 5rem;
+  }
+  .datepicker {
+    position: absolute;
+    right: 0;
+    top: 0;
+    .dropdown-trigger {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 4.4rem;
+      width: 5rem;
+      background: green;
+    //   background: var(--baseColor) url(@/assets/images/common/icon-calendar.svg) no-repeat 50% 50%/2.3rem auto;
+      button {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .dropdown-menu {
+      left: inherit !important;
+      right: 0 !important;
+    }
+  }
+}
+
+/************************************* textarea : tfarea(textfield) *************************************/
+.tfarea {
+  width: 100%;
+  padding: 1rem;
+  line-height: 1.38;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  color: #1d1d1d;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  resize: none;
+  &::placeholder {
+    color: #a5a5a5;
+  }
+  &:not(:readonly) {
+    &:focus {
+      border-color: #1d1d1d;
+    }
+  }
+  &:read-only,
+  &:disabled {
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+div.tfarea {
+  overflow-y: auto;
+  height: 14.5rem;
+}
+
+.tfarea-box {
+  position: relative;
+  .words {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #bcbcbc;
+    .num {
+      color: #1d1d1d;
+    }
+  }
+}
+
+/************************************* 년월일 : tf-ymd(year month day) *************************************/
+.tf-ymd {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 16.4rem;
+  height: 3.6rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  color: #bcbcbc;
+  input {
+    padding: 0;
+    border: 0;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    color: #1d1d1d;
+    text-align: right;
+    &[type='number'] {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        appearance: none;
+      }
+    }
+    &[maxlength='4'] {
+      width: 3.5rem;
+    }
+    &[maxlength='2'] {
+      width: 2rem;
+    }
+  }
+  .unit {
+    color: #1d1d1d;
+  }
+}
+
+/************************************* mask : tf-mask *************************************/
+.tf-mask {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  .btn-mask {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3.4rem;
+    height: 100%;
+    cursor: pointer;
+    // background: url(@/assets/images/common/icon-view.svg) no-repeat 50% 50%/1.4rem auto;
+    &.on {
+    //   background-image: url(@/assets/images/common/icon-view-on.svg);
+    }
+  }
+}
+
+/************************************* 유효기간 : tf-valid *************************************/
+.tf-valid {
+  width: auto;
+  .tf {
+    width: 7.2rem;
+  }
+  .unit {
+    width: 2.4rem;
+    text-align: center;
+  }
+}
+
+/* form item : form-tit  form-cont로 구성 */
+.form-item {
+  margin-top: 3rem;
+  .form-tit {
+    display: flex;
+    margin-bottom: 0.5rem;
+    .tit {
+      flex: 1;
+      font-size: 1.4rem;
+      line-height: 1.42;
+      font-weight: 500;
+      color: #1d1d1d;
+      .assist {
+        margin-left: 0.2rem;
+        font-size: 1.1rem;
+        color: var(--baseColor);
+      }
+      .required {
+        &:before {
+          content: '*';
+          display: inline-block;
+          margin-left: 0.2rem;
+          color: var(--baseColor);
+        }
+      }
+    }
+    .append {
+      flex-shrink: 0;
+      align-self: flex-end;
+      .words {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        color: #1d1d1d;
+      }
+    }
+  }
+  .form-cont {
+    font-size: 1.3rem;
+    .btn-area:not(:first-child) {
+      margin-top: 2rem;
+      &:not(:last-child) {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+  /* 도움말 txt-assist */
+  .txt-assist {
+    flex: none;
+    width: 100%;
+    margin: 1rem 0 0 !important;
+  }
+  //form-area validator
+  .validator {
+    position: relative;
+    margin-top: 0.8rem;
+    padding-left: 1.6rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: -0.06rem;
+    color: #a5a5a5;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.3rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 1.2rem auto;
+    //   background-image: url(@/assets/images/common/icon-validaor-check.svg);
+    }
+
+    &.on {
+      color: var(--baseColor);
+      &:before {
+        // background-image: url(@/assets/images/common/icon-validaor-check-on.svg);
+      }
+    }
+    + .validator {
+      margin-top: 0.5rem;
+    }
+  }
+  + .txt-normal {
+    margin-top: 2rem;
+  }
+  + .btn-area:not(.type-bottom) {
+    margin: 2rem 0 3rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &.col {
+    display: flex;
+    margin-top: 1rem;
+    .form-tit {
+      width: 9rem;
+      flex-shrink: 0;
+      padding: 1rem 1rem 0 0;
+      text-align: left;
+    }
+    .form-cont {
+      flex: 1;
+    }
+  }
+}
+
+.list-form-area {
+  .form-item:first-child {
+    margin-top: 0;
+  }
+  &.type-narrow {
+    .form-item:not(:first-child) {
+      margin-top: 2rem;
+    }
+    + .btn-area:not(.type-bottom) {
+      margin: 2rem 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  + .btn-area:not(.type-bottom) {
+    margin: 3rem 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  + .txt-assist {
+    //비회원 주문취소
+    margin-top: 3rem;
+  }
+}
+
+.tit-form {
+  display: block;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.box-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 8.6rem;
+  background-color: #f8f8f8;
+  .major {
+    font-weight: 400;
+    font-size: 1.6rem;
+    letter-spacing: -0.08rem;
+  }
+  .assist {
+    margin-top: 0.6rem;
+    font-size: 1.1rem;
+    color: #a5a5a5;
+  }
+  + .btn-area {
+    margin-top: 2rem;
+  }
+}
+
+.info-area {
+  .txt-notice {
+    &.required {
+      margin-bottom: 1rem;
+    }
+  }
+}
+//필수정보 입력
+.txt-notice {
+  &.required {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #1d1d1d;
+    text-align: right;
+    &:before {
+      content: '*';
+      display: inline-block;
+      margin-right: 0.2rem;
+      color: var(--baseColor);
+    }
+  }
+}

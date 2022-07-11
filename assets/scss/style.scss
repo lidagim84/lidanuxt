@@ -1,4 +1,13 @@
 @charset "UTF-8";
+
+@import './form.scss';
+
+html {
+    font-size:10px; //rem기본
+}
+body {
+    font-size:1.2rem;
+}
 nav {
     height: $px10;
     outline:1px solid red;
