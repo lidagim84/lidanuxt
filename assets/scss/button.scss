@@ -1,0 +1,288 @@
+@charset "UTF-8";
+/************************************* buefy css reset *************************************/
+.field:not(:last-child) {
+    margin-bottom: 0;
+  }
+  .field.is-grouped > .control:not(:last-child) {
+    margin: 0;
+  }
+
+  /************************************* width percent *************************************/
+.form-area,
+.btn-area {
+  [class*='wp'] {
+    flex: 1 0 auto;
+  }
+  button,
+  a {
+    &[class*='wp'] {
+      padding: 0;
+    }
+  }
+}
+.wp40 {
+  width: 40% !important;
+}
+.wp43 {
+  width: 43% !important;
+}
+.wp50 {
+  width: 50% !important;
+}
+
+/************************************* width 고정 *************************************/
+.form-area,
+.btn-area {
+  [class*='wd'] {
+    flex: 0 0 auto;
+  }
+  button,
+  a {
+    &[class*='wd'] {
+      padding: 0;
+    }
+  }
+}
+.wd80 {
+  width: 8rem !important;
+}
+.wd90 {
+  width: 9rem !important;
+}
+.wd120 {
+  width: 12rem !important;
+}
+.wd200 {
+  width: 20rem !important;
+}
+/************************************* 버튼 *************************************/
+/* button 정렬 */
+.btn-area {
+  display: flex;
+  [class*='btn-'] {
+    width: 100%;
+  }
+  &.type-bottom {
+    margin-top: 4rem;
+  }
+  &:not(.type-row, .type-fixed) {
+    [class*='btn-'] {
+      + [class*='btn-'] {
+        margin-left: 1rem;
+      }
+    }
+  }
+  &.type-row {
+    flex-direction: column;
+    [class*='btn-'] {
+      + [class*='btn-'] {
+        margin-top: 1rem;
+      }
+      + .btn-line {
+        margin-top: 3rem;
+      }
+    }
+  }
+  &.type-fixed {
+    [class*='btn-'] {
+      border-radius: 0;
+    }
+  }
+  .row {
+    display: flex;
+    [class*='btn-'] {
+      + [class*='btn-'] {
+        margin: 0 0 0 1rem;
+      }
+    }
+    + .row {
+      margin-top: 1rem;
+      .btn-line {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+/* button */
+.btn-normal,
+.btn-normal2,
+.btn-point,
+.btn-secondary,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border-radius: 3px;
+  height: 3.5rem;
+  padding: 0 1rem; //임시값
+  font-weight: 500;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  /* width 고정px값 */
+  // &[class*='wd'] {
+  //   flex: 0 0 auto;
+  //   padding: 0;
+  // }
+  // &.wd90 {
+  //   width: 9rem;
+  // }
+  /* button 크기별 */
+  &.small {
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+  &.large {
+    height: 4.5rem;
+    font-size: 1.5rem;
+    //height45px이면서 font-size:1.3rem
+    &.fs13 {
+      font-size: 1.3rem;
+    }
+  }
+  &.x-large {
+    font-weight: 700;
+    font-size: 1.6rem;
+    height: 6rem;
+  }
+  &:disabled {
+    cursor: default;
+  }
+  // &:hover {
+  //   color: currentColor;
+  // }
+}
+.btn-normal {
+  background-color: #fff;
+  color: #1d1d1d;
+  border-color: #bcbcbc;
+  &.disabled {
+    color: #fff;
+    background-color: #bcbcbc;
+    border: 1px solid #bcbcbc;
+  }
+  &.arrow {
+    position: relative;
+    justify-content: flex-start;
+    &:after {
+      content: '';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-top: -0.3rem;
+      border-top: 1px solid #1d1d1d;
+      border-right: 1px solid #1d1d1d;
+      transform: rotate(45deg);
+    }
+  }
+}
+.btn-normal2 {
+  background-color: #fff;
+  color: #bcbcbc;
+  border-color: #bcbcbc;
+  &.disabled {
+    color: #fff;
+    background-color: #bcbcbc;
+    border: 1px solid #bcbcbc;
+  }
+}
+.btn-point {
+  background-color: #fff;
+  color: var(--baseColor);
+  border-color: var(--baseColor);
+  &.disabled {
+    background-color: #bcbcbc;
+    border: 1px solid #bcbcbc;
+  }
+}
+.btn-secondary {
+  background-color: #fff6e9;
+  color: var(--baseColor);
+  border-color: #fff6e9;
+  &.disabled {
+    background-color: #bcbcbc;
+    border: 1px solid #bcbcbc;
+  }
+}
+
+.btn-primary {
+  background-color: var(--baseColor);
+  color: #fff;
+  border-color: var(--baseColor);
+  &.disabled {
+    background-color: #bcbcbc;
+    border: 1px solid #bcbcbc;
+  }
+}
+
+.btn-sns {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 3px;
+  width: 100%;
+  height: 4.5rem;
+  padding: 0 1.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+
+  &.naver {
+    color: #fff;
+    border-color: #2db400;
+    background-color: #2db400;
+  }
+  &.facebook {
+    color: #fff;
+    border-color: #3b5998;
+    background-color: #3b5998;
+  }
+  &.apple {
+    color: #fff;
+    border-color: #1d1d1d;
+    background-color: #1d1d1d;
+  }
+  &.google {
+    color: #1d1d1d;
+    border-color: #f1f1f1;
+    background-color: #f1f1f1;
+  }
+  &.kakao {
+    color: #1d1d1d;
+    border-color: #feeb35;
+    background-color: #feeb35;
+  }
+  &.icon {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-top: -1.1rem;
+    }
+    // &.naver:before {
+    //   background: url('@/assets/images/common/icon-naver.svg') no-repeat 0 0/2.2rem auto;
+    // }
+    // &.facebook:before {
+    //   background: url('@/assets/images/common/icon-facebook.svg') no-repeat 0 0/2.2rem auto;
+    // }
+    // &.apple:before {
+    //   background: url('@/assets/images/common/icon-apple.svg') no-repeat 0 0/2.2rem auto;
+    // }
+    // &.google:before {
+    //   background: url('@/assets/images/common/icon-google.svg') no-repeat 0 0/2.2rem auto;
+    // }
+    // &.kakao:before {
+    //   background: url('@/assets/images/common/icon-kakao.svg') no-repeat 0 0/2.2rem auto;
+    // }
+  }
+}
+  

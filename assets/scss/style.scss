@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
+@import './fonts.scss';
+@import './reset.scss';
 @import './form.scss';
+@import './button.scss';
 
 html {
     font-size:10px; //rem기본
